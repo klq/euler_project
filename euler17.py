@@ -53,6 +53,57 @@ def euler17():
 
     return grand_total
 
-
-
 print euler17()
+
+def num_to_English(n):
+    words = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen']
+    tens = ['twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety']
+
+    if n <= 0 or n > 1000:
+        raise NotImplemented
+        return 'Input number out of range.'
+
+    if n < 20:
+        return words[n]
+
+    if n < 100:
+        m, r = divmod(n, 10)
+        if r == 0:
+            return tens[m-2]
+        else:
+            return tens[m-2] + '-' + words[r]
+
+    if n < 1000:
+        m, r = divmod(n, 100)
+        if r == 0:
+            return words[m] + 'hundred'
+        else:
+            return words[m] + 'hundred and' + num_to_English(r)
+
+    if n == 1000:
+        return 'one thousand'
+
+    else:
+        raise NotImplemented
+        return 'Input number out of range.'
+
+
+def count_letters(s):
+    return sum( 1 if c.isalpha() else 0 for c in  s )
+
+
+print sum([count_letters(num_to_English(i)) for i in range(1,1001)])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
