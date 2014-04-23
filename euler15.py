@@ -22,6 +22,17 @@ def euler15():
 
     return routes
 
+
 euler15() #137846528820
+
+
+"""
+Analytical solution:
+You will go down exactly 20 steps, and go right exactly 20 steps. 40 steps in total.
+So the total number of different routes is 40 choose 20.
+C(20,40) = P(20,40) / P(20,20) = 40! / (20! (40-20)!) 
+"""
+import math
+print math.factorial(40) / (math.factorial(20)**2)
 
     
