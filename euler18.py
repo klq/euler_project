@@ -43,6 +43,8 @@ def get_pile():
     for l in pile_file:
         pile.append([int (ele) for ele in l.split()])
     
+    pile_file.close()
+    
     return pile
 
 def merge_rows(a,b):

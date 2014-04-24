@@ -4,6 +4,9 @@ def euler13():
   for line in f:
     thesum += int(line)
   
+  f.close()
+  
   return str(thesum)[:10]
+
 
 print euler13()
