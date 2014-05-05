@@ -20,4 +20,4 @@ def euler29():
     print len(distinct_powers)
 
 
-euler29()
+euler29() #9183
