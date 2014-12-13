@@ -40,6 +40,34 @@ def list_increment(l):
     return None
 
 
+def euler31_recursive():
+    print p_level(200,7)
+
+def p_level(n, level):
+    coins = [1, 2, 5, 10, 20, 50, 100, 200]
+
+    if n < 0:
+        return 0
+    if level == 0:
+        return 1
+    return p_level(n-coins[level],level) + p_level(n,level-1)
+
+def euler31_iterative():
+    coins = [1, 2, 5, 10, 20, 50, 100, 200]
+    limit = 200
+
+    p_level_cache = [[1 for x in range(len(coins))] for x in range(limit + 1)] # 8 by 201 matrix
+
+    # because p_level_cache[0, y] = 1 for all y, p_level_cache[x,0] = 1 for all x
+
+    for sum in range(1, limit + 1):
+        for level in range(1, len(coins)):
+                sub_sum = sum - coins[level]
+                p_level_cache[sum][level] = p_level_cache[sum][level - 1] + (p_level_cache[sub_sum][level] if (sub_sum >= 0) else 0)
+
+
+    print p_level_cache[limit][len(coins) - 1]
+
 
 def main():
     euler31()
