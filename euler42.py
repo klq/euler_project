@@ -41,6 +41,9 @@ def euler42():
 
     print triangle_count
 
+    # Answer is:
+    # 162
+
 
 def main():
     euler42()
