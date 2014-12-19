@@ -27,6 +27,12 @@ def euler45():
     # Answer is: 
     # set([1, 40755, 1533776805])
 
+
+    # tris = set({i * (i+1) /2 for i in xrange(1, n)})
+    # pens = set({i * (3*i - 1) / 2 for i in xrange(1, n)})
+    # hexs = set({i * (2*i - 1) for i in xrange(1, n)})
+    # print {x for x in hexs if x in pens and x in tris}
+
 def main():
     euler45()
 
